@@ -5,10 +5,9 @@ import com.sample.evite.dto.AddEventParam;
 import com.sample.evite.dto.DeleteParam;
 import com.sample.evite.dto.UserRequestParam;
 import com.sample.evite.entity.UserEntity;
-import com.sample.evite.resonse.AddEventResponseDto;
+import com.sample.evite.response.AddEventResponseDto;
 import com.sample.evite.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

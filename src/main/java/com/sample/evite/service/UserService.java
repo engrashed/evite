@@ -10,7 +10,7 @@ import com.sample.evite.entity.EventEntity;
 import com.sample.evite.entity.UserEntity;
 import com.sample.evite.entity.UserEventEntity;
 import com.sample.evite.mapper.eventmanagement.UserMapper;
-import com.sample.evite.resonse.AddEventResponseDto;
+import com.sample.evite.response.AddEventResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

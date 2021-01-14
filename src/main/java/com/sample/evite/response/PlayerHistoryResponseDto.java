@@ -1,4 +1,4 @@
-package com.sample.evite.resonse;
+package com.sample.evite.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;

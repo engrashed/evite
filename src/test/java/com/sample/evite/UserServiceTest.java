@@ -9,7 +9,7 @@ import com.sample.evite.entity.UserEntity;
 import com.sample.evite.entity.UserEventEntity;
 import com.sample.evite.mapper.eventmanagement.EventMapper;
 import com.sample.evite.mapper.eventmanagement.UserMapper;
-import com.sample.evite.resonse.AddEventResponseDto;
+import com.sample.evite.response.AddEventResponseDto;
 import com.sample.evite.service.EventService;
 import com.sample.evite.service.UserService;
 import org.junit.jupiter.api.Test;

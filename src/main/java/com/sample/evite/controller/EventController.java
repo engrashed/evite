@@ -2,8 +2,8 @@ package com.sample.evite.controller;
 
 import com.sample.evite.core.CommonResponse;
 import com.sample.evite.dto.*;
-import com.sample.evite.resonse.EventResponseListDto;
-import com.sample.evite.resonse.UserResponseListDto;
+import com.sample.evite.response.EventResponseListDto;
+import com.sample.evite.response.UserResponseListDto;
 import com.sample.evite.service.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
