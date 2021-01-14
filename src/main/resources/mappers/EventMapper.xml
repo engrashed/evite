@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sample.evite.mapper.eventmanagement.EventMapper">
+
+
+    <select id="getList" resultType="com.sample.evite.entity.EventEntity">
+        SELECT *
+        FROM events
+        WHERE delete_flg = false
+    </select>
+
+    <select id="getEventListByEmail" resultType="com.sample.evite.entity.EventEntity">
+        SELECT *
+        FROM events as ev
+        INNER JOIN user_events as uev ON (ev.event_id = uev.event_id AND uev.delete_flg = false)
+        WHERE ev.delete_flg = false AND uev.email = #{email}
+    </select>
+
+    <select id="getById" resultType="com.sample.evite.entity.EventEntity">
+        SELECT *
+        FROM events
+        WHERE event_id = #{id} AND delete_flg = false
+    </select>
+
+    <select id="getByName" resultType="com.sample.evite.entity.EventEntity">
+        <bind name="pattern" value="'%' + _parameter.player + '%'" />
+        SELECT *
+        FROM score
+        WHERE name LIKE #{pattern}
+          AND delete_flg = false
+    </select>
+
+    <insert id="create">
+        INSERT INTO events (name, location, timeZone, start_time, end_time, created_at)
+        VALUES (#{name}, #{location}, #{timeZone}, #{startTime}, #{endTime}, CURRENT_TIMESTAMP)
+    </insert>
+
+    <update id="update">
+        UPDATE events
+        SET delete_flg = true
+        WHERE event_id = #{id}
+    </update>
+
+    <update id="updateEvent">
+        UPDATE events
+        SET name = #{name},
+            location = #{location},
+            start_time = #{startTime},
+            end_time = #{endTime}
+        WHERE event_id = #{eventId}
+    </update>
+</mapper>

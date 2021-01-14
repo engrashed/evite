@@ -1,0 +1,8 @@
+---
+applications:
+- name: Event Management
+  memory: 256M
+  instances: 1
+  host: evite
+  domain: guides.spring.io
+  path: build/libs/evite-0.1.0.jar

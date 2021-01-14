@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sample.evite.mapper.eventmanagement.UserMapper">
+
+
+    <select id="getListByEnventId" resultType="com.sample.evite.entity.UserEntity">
+        SELECT *
+        FROM users as u
+        INNER JOIN user_events as uev ON u.email = uev.email AND uev.delete_flg = false
+        WHERE uev.event_id=#{eventId} AND u.delete_flg = false
+    </select>
+
+    <insert id="create">
+        INSERT INTO users (email, name, password, created_at)
+        VALUES (#{email}, #{name}, #{password}, CURRENT_TIMESTAMP)
+    </insert>
+
+    <select id="getByEmail" resultType="com.sample.evite.entity.UserEntity">
+        SELECT *
+        FROM users
+        WHERE email = #{email}
+          AND delete_flg = false
+    </select>
+
+    <insert id="createUserEvent">
+        INSERT INTO user_events (email, event_id, created_at)
+        VALUES (#{email}, #{eventId}, CURRENT_TIMESTAMP)
+    </insert>
+
+    <select id="getUserEventByEmail" resultType="com.sample.evite.entity.UserEventEntity">
+        SELECT *
+        FROM user_events
+        WHERE email = #{email} AND event_id = #{eventId}
+          AND delete_flg = false
+    </select>
+
+    <update id="deleteUserEvent">
+        UPDATE user_events
+        SET delete_flg = true
+        WHERE email = #{email} and event_id=#{eventId}
+    </update>
+</mapper>
